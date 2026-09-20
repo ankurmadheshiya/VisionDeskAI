@@ -1,0 +1,68 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+venv/
+.venv/
+ENV/
+env/
+
+# Environment variables & secrets
+.env
+.env.*
+
+# Databases & vector indexes
+*.db
+*.sqlite3
+chroma_db/
+test_chroma_db/
+*/chroma_db/
+*/test_chroma_db/
+
+# ML Weights & Large Binary Models
+*.pt
+*.onnx
+*.bin
+*.engine
+
+# Uploaded files, temporary outputs & generated reports
+module1/uploads/*
+!module1/uploads/README.md
+!module1/uploads/.gitkeep
+module1/outputs/*
+module2/uploads/*
+!module2/uploads/.gitkeep
+reporting/output/*
+
+# IDE & Editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VisionDesk AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">AI-powered media workspace</p>
+          <h1>VisionDesk AI</h1>
+          <p class="subtitle">
+            Upload images or videos, preview them instantly, and build your next
+            computer vision experience.
+          </p>
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <section class="upload-grid">
+          <article class="card">
+            <div class="card-header">
+              <h2>Upload Image</h2>
+              <p>Share a still image for quick preview.</p>
+            </div>
+            <form method="post" enctype="multipart/form-data">
+              <label class="upload-box" for="image_file">
+                <span>Choose image</span>
+                <input id="image_file" name="image_file" type="file" accept="image/*" required />
+              </label>
+              <button type="submit">Upload Image</button>
+            </form>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <h2>Upload Video</h2>
+              <p>Drop in a short clip to preview it directly.</p>
+            </div>
+            <form method="post" enctype="multipart/form-data">
+              <label class="upload-box" for="video_file">
+                <span>Choose video</span>
+                <input id="video_file" name="video_file" type="file" accept="video/*" required />
+              </label>
+              <button type="submit">Upload Video</button>
+            </form>
+          </article>
+        </section>
+
+        <section class="preview-card">
+          <div class="preview-header">
+            <h2>Preview</h2>
+            <p>Your latest upload will appear here.</p>
+          </div>
+
+          {% if preview %}
+            {% if preview.error %}
+              <div class="message error">{{ preview.error }}</div>
+            {% else %}
+              <div class="preview-meta">
+                <span class="badge">{{ preview.type|title }}</span>
+                <p>{{ preview.filename }}</p>
+              </div>
+
+              {% if preview.type == 'image' %}
+                <img src="{{ url_for('uploaded_file', filename=preview.filename) }}" alt="Uploaded preview" />
+              {% else %}
+                <video controls poster="{{ url_for('static', filename='video-placeholder.png') }}">
+                  <source src="{{ url_for('uploaded_file', filename=preview.filename) }}" />
+                </video>
+              {% endif %}
+            {% endif %}
+          {% else %}
+            <div class="empty-state">
+              <p>No file uploaded yet.</p>
+              <span>Pick an image or video to see the preview.</span>
+            </div>
+          {% endif %}
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

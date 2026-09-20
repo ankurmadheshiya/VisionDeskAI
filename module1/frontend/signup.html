@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisionDesk - Sign Up</title>
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+    <main class="auth-container">
+        <div class="auth-card">
+            <header class="auth-header">
+                <span class="auth-logo">VisionDesk AI</span>
+                <h1 class="auth-title">Create Account</h1>
+                <p class="auth-subtitle">Join us to start building computer vision apps</p>
+            </header>
+
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="name" class="form-label">Full Name</label>
+                    <div class="input-wrapper">
+                        <input 
+                            type="text" 
+                            id="name" 
+                            class="form-input" 
+                            placeholder="John Doe" 
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <div class="input-wrapper">
+                        <input 
+                            type="email" 
+                            id="email" 
+                            class="form-input" 
+                            placeholder="name@example.com" 
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label>
+                    <div class="input-wrapper">
+                        <input 
+                            type="password" 
+                            id="password" 
+                            class="form-input" 
+                            placeholder="••••••••" 
+                            required
+                        >
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit">Sign Up</button>
+            </form>
+
+            <div id="message" class="auth-message"></div>
+
+            <div class="auth-footer">
+                Already have an account? <a href="login.html" class="auth-link">Sign In</a>
+            </div>
+
+            <div class="db-status-bar">
+                <div id="db-status-dot" class="status-dot checking"></div>
+                <span id="db-status-text" class="status-text checking">Checking Database...</span>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/signup.js"></script>
+</body>
+</html>
